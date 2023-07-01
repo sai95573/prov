@@ -11,7 +11,7 @@ resource "aws_instance" "prov-test" {
   }
   
   provisioner "file" {
-    source = "script.sh"
+    source = "${path.module}/script.sh"
     destination = "/tmp/script.sh"
   }
 
