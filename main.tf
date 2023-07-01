@@ -18,7 +18,7 @@ resource "aws_instance" "prov-test" {
   provisioner "remote-exec" {
     inline = [
       "sudo chmod +x /tmp/script.sh",
-      "/tmp/script.sh",
+      "/tmp/script.sh args",
     ]
   }
 }
