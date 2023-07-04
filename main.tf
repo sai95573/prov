@@ -17,6 +17,8 @@ resource "aws_instance" "prov-test" {
 
   provisioner "remote-exec" {
     inline = [
+      "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do sleep 1; done",
+      "echo 'Cloud-init finished'"
       "sudo chmod +x /tmp/script.sh",
       "/tmp/script.sh args",
     ]
